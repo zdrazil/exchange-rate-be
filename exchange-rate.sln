@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Contracts", "src\ExchangeRate.Contracts\ExchangeRate.Contracts.csproj", "{41120A93-FA21-4DE4-976F-5B378DC36FEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2497CD81-5570-41AE-88C7-7D3BF10DB7CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Api.Tests.Integration", "tests\ExchangeRate.Api.Tests.Integration\ExchangeRate.Api.Tests.Integration.csproj", "{DEC75325-EEE6-458D-B4E9-56F25D172F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Application.Tests.Unit", "tests\ExchangeRate.Application.Tests.Unit\ExchangeRate.Application.Tests.Unit.csproj", "{FA752B2A-6954-40F2-BA03-7185157D8081}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +38,20 @@ Global
 		{41120A93-FA21-4DE4-976F-5B378DC36FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41120A93-FA21-4DE4-976F-5B378DC36FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41120A93-FA21-4DE4-976F-5B378DC36FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC75325-EEE6-458D-B4E9-56F25D172F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC75325-EEE6-458D-B4E9-56F25D172F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC75325-EEE6-458D-B4E9-56F25D172F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC75325-EEE6-458D-B4E9-56F25D172F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA752B2A-6954-40F2-BA03-7185157D8081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA752B2A-6954-40F2-BA03-7185157D8081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA752B2A-6954-40F2-BA03-7185157D8081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA752B2A-6954-40F2-BA03-7185157D8081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{12D78D09-1B61-4418-BA8C-4086880E038A} = {07596BF2-20BE-454E-8749-FB4D4AA84662}
 		{693F14F9-FDFA-4BB9-BAA7-8F11342286A8} = {07596BF2-20BE-454E-8749-FB4D4AA84662}
 		{41120A93-FA21-4DE4-976F-5B378DC36FEA} = {07596BF2-20BE-454E-8749-FB4D4AA84662}
+		{DEC75325-EEE6-458D-B4E9-56F25D172F89} = {2497CD81-5570-41AE-88C7-7D3BF10DB7CF}
+		{FA752B2A-6954-40F2-BA03-7185157D8081} = {2497CD81-5570-41AE-88C7-7D3BF10DB7CF}
 	EndGlobalSection
 EndGlobal
