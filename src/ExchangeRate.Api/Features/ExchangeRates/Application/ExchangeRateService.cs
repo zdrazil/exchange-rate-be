@@ -1,9 +1,12 @@
+using ExchangeRate.Api.Features.ExchangeRateApplication.Repository;
 using ExchangeRate.Api.Features.ExchangeRateModels;
 
 namespace ExchangeRate.Api.Features.ExchangeRateApplication.Service;
 
 public interface IExchangeRateService
 {
+    Task<bool> CreateAsync(ExchangeRateDto exchangeRate, CancellationToken token = default);
+
     Task<IEnumerable<ExchangeRateDto>> GetExchangeRatesAsync(
         GetAllExchangeRatesOptions options,
         CancellationToken cancellationToken = default
@@ -14,6 +17,18 @@ public interface IExchangeRateService
 
 public class ExchangeRateService : IExchangeRateService
 {
+    private readonly IExchangeRateRepository _exchangeRateRepository;
+
+    public ExchangeRateService(IExchangeRateRepository exchangeRateRepository)
+    {
+        _exchangeRateRepository = exchangeRateRepository;
+    }
+
+    public Task<bool> CreateAsync(ExchangeRateDto exchangeRate, CancellationToken token = default)
+    {
+        return _exchangeRateRepository.CreateAsync(exchangeRate, token);
+    }
+
     public Task<int> GetCountAsync(CancellationToken cancellationToken = default) =>
         throw new NotImplementedException();
 
