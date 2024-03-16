@@ -1,5 +1,5 @@
-using ExchangeRate.Api.Features.ExchangeRateContracts;
 using ExchangeRate.Api.Features.ExchangeRateModels;
+using ExchangeRate.Api.Features.ExchangeRates.Api.Contracts;
 
 namespace ExchangeRate.Api.Features.ExchangeRateApi.Mapping;
 

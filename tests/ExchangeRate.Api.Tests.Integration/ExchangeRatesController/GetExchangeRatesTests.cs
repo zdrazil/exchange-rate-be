@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Web;
 using ExchangeRate.Api.Features.ExchangeRateApi;
-using ExchangeRate.Api.Features.ExchangeRateContracts;
+using ExchangeRate.Api.Features.ExchangeRates.Api.Contracts;
 using FluentAssertions;
 
 namespace ExchangeRate.Api.Tests.Integration.ExchangeRatesController;
