@@ -12,3 +12,4 @@ Please write the code like you would if you needed this to run on production env
 
 - I'm using vertical slice architecture, grouping things by feature.
 - I don't follow one class, one file rule.
+- I don't create layers I don't currently needl. For example, I don't have the service above repository when the service would be just passing through things.
