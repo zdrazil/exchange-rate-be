@@ -1,6 +1,6 @@
 namespace ExchangeRate.Api.Features.ExchangeRateApi;
 
-public static class ExchangeRateEndpoints
+public static partial class ExchangeRateEndpoints
 {
     private const string Base = $"{ApiEndpoints.ApiBase}/exchange-rates";
     public const string Get = $"{Base}/{{code}}";
