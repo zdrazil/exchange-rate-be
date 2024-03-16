@@ -1,4 +1,3 @@
-using ExchangeRate.Api.Features.CnbIntegration.Repositories;
 using ExchangeRate.Api.Features.CnbIntegration.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -14,12 +13,10 @@ public class ExchangeRateApiFactory : WebApplicationFactory<IApiMarker>, IAsyncL
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.ConfigureTestServices(services =>
-            services.AddHttpClient<ICnbIntegrationRepository, CnbIntegrationRepository>(
-                httpClient =>
-                {
-                    httpClient.BaseAddress = new Uri(_cnbApiServer.Url);
-                }
-            )
+            services.AddHttpClient<ICnbIntegrationService, CnbIntegrationService>(httpClient =>
+            {
+                httpClient.BaseAddress = new Uri(_cnbApiServer.Url);
+            })
         );
     }
 

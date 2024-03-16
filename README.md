@@ -12,4 +12,4 @@ Please write the code like you would if you needed this to run on production env
 
 - I'm using vertical slice architecture, grouping things by feature.
 - I don't follow one class, one file rule.
-- I don't create layers I don't currently need. For example, I don't have the service above repository when the service would be just passing through things.
+- I don't create layers I don't currently need. For example, I don't have the service above repository when the service would be just passing through things. For example, the `CnbIntegrationService` could be split into repository and service. But YAGNI and when we will need it, be it for the need for some business logic or for testing, we can split it.

@@ -1,4 +1,3 @@
-using ExchangeRate.Api.Features.CnbIntegration.Repositories;
 using ExchangeRate.Api.Features.CnbIntegration.Services;
 
 namespace ExchangeRate.Api.Features.ExchangeRates.Application.ServiceCollections;
@@ -8,9 +7,8 @@ public static class CnbIntegrationServiceCollectionExtensions
     public static IServiceCollection AddCnbIntegration(this IServiceCollection services)
     {
         services.AddSingleton<ICnbIntegrationService, CnbIntegrationService>();
-        services.AddSingleton<ICnbIntegrationRepository, CnbIntegrationRepository>();
 
-        services.AddHttpClient<ICnbIntegrationRepository, CnbIntegrationRepository>(client =>
+        services.AddHttpClient<ICnbIntegrationService, CnbIntegrationService>(client =>
         {
             // TODO: Uncomment when we know everything else is working.
             //   client.BaseAddress = new Uri(
