@@ -26,7 +26,7 @@ public class GetExchangeRatesTests : IClassFixture<ExchangeRateApiFactory>
         // Arrange
         GetAllExchangeRatesRequest request = new() { Page = 1, PageSize = 10 };
 
-        var builder = new UriBuilder { Path = ExchangeRateEndpoints.GetAll };
+        var builder = new UriBuilder { Path = ExchangeRateGetAllController.Path };
         var query = HttpUtility.ParseQueryString(builder.Query);
         // query["page"] = "1";
         // query["pageSize"] = "10";
