@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddExchangeRates();
 builder.Services.AddCnbIntegration();
+builder.Services.AddCnbDataSync();
 builder.Services.AddDatabase(config["Database:ConnectionString"]!);
 
 var app = builder.Build();
