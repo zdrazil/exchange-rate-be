@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ExchangeRate.Api.Features.ExchangeRateModels;
 
 namespace ExchangeRate.Api.Features.ExchangeRateApplication.Service;

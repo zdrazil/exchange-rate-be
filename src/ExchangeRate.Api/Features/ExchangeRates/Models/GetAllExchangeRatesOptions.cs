@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ExchangeRate.Api.Features.ExchangeRateModels;
 
-public class GetAllExchangeRatesOptions { }
+public class GetAllExchangeRatesOptions
+{
+    public DateTime Date { get; set; }
+}
 
 public enum SortOrder
 {
