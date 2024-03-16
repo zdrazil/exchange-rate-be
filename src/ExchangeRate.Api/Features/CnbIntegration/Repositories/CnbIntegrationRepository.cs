@@ -30,7 +30,7 @@ public class CnbIntegrationRepository : ICnbIntegrationRepository
 
         var exchangeRates = content
             .Split('\n')
-            .Skip(1)
+            .Skip(2)
             .Select(line =>
             {
                 var parts = line.Split('|');

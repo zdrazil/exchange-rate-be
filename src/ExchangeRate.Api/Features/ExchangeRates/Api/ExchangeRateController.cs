@@ -1,3 +1,5 @@
+using ExchangeRate.Api.Features.CnbIntegration.Models;
+using ExchangeRate.Api.Features.CnbIntegration.Services;
 using ExchangeRate.Api.Features.ExchangeRateApi.Mapping;
 using ExchangeRate.Api.Features.ExchangeRateApplication.Service;
 using ExchangeRate.Api.Features.ExchangeRateContracts;
@@ -9,10 +11,12 @@ namespace ExchangeRate.Api.Features.ExchangeRateApi;
 public class ExchangeRateController : ControllerBase
 {
     private readonly IExchangeRateService _exchangeRateService;
+    private readonly ICnbService _cnbService;
 
-    public ExchangeRateController(IExchangeRateService exchangeRateService)
+    public ExchangeRateController(IExchangeRateService exchangeRateService, ICnbService cnbService)
     {
         _exchangeRateService = exchangeRateService;
+        _cnbService = cnbService;
     }
 
     [HttpGet(ExchangeRateEndpoints.GetAll)]
@@ -23,6 +27,11 @@ public class ExchangeRateController : ControllerBase
     )
     {
         var options = request.MapToOptions();
+
+        var res = await _cnbService.GetDailyExchangeRatesAsync(
+            new GetCnbDailyExchangeRatesOptions { Date = DateTime.Now },
+            cancellationToken
+        );
 
         var exchangeRates = await _exchangeRateService.GetExchangeRatesAsync(
             options,

@@ -18,14 +18,7 @@ public class CnbApiServer : IDisposable
     public void SetupExchangeRates()
     {
         _server
-            .Given(
-                Request
-                    .Create()
-                    .WithPath(
-                        "/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
-                    )
-                    .UsingGet()
-            )
+            .Given(Request.Create().WithPath("/daily.txt").UsingGet())
             .RespondWith(
                 Response
                     .Create()
@@ -37,38 +30,39 @@ public class CnbApiServer : IDisposable
 
     private static string GenerateExchangeRatesBody() =>
         @"15.03.2024 #54
-země|měna|množství|kód|kurz
-Austrálie|dolar|1|AUD|15,175
-Brazílie|real|1|BRL|4,624
-Bulharsko|lev|1|BGN|12,861
-Čína|žen-min-pi|1|CNY|3,209
-Dánsko|koruna|1|DKK|3,373
-EMU|euro|1|EUR|25,155
-Filipíny|peso|100|PHP|41,579
-Hongkong|dolar|1|HKD|2,952
-Indie|rupie|100|INR|27,866
-Indonesie|rupie|1000|IDR|1,481
-Island|koruna|100|ISK|16,871
-Izrael|nový šekel|1|ILS|6,322
-Japonsko|jen|100|JPY|15,520
-Jižní Afrika|rand|1|ZAR|1,236
-Kanada|dolar|1|CAD|17,079
-Korejská republika|won|100|KRW|1,737
-Maďarsko|forint|100|HUF|6,398
-Malajsie|ringgit|1|MYR|4,909
-Mexiko|peso|1|MXN|1,383
-MMF|ZPČ|1|XDR|30,819
-Norsko|koruna|1|NOK|2,184
-Nový Zéland|dolar|1|NZD|14,089
-Polsko|zlotý|1|PLN|5,857
-Rumunsko|leu|1|RON|5,060
-Singapur|dolar|1|SGD|17,275
-Švédsko|koruna|1|SEK|2,233
-Švýcarsko|frank|1|CHF|26,173
-Thajsko|baht|100|THB|64,412
-Turecko|lira|100|TRY|71,676
-USA|dolar|1|USD|23,093
-Velká Británie|libra|1|GBP|29,454";
+15 Mar 2024 #54
+Country|Currency|Amount|Code|Rate
+Australia|dollar|1|AUD|15.175
+Brazil|real|1|BRL|4.624
+Bulgaria|lev|1|BGN|12.861
+Canada|dollar|1|CAD|17.079
+China|renminbi|1|CNY|3.209
+Denmark|krone|1|DKK|3.373
+EMU|euro|1|EUR|25.155
+Hongkong|dollar|1|HKD|2.952
+Hungary|forint|100|HUF|6.398
+Iceland|krona|100|ISK|16.871
+IMF|SDR|1|XDR|30.819
+India|rupee|100|INR|27.866
+Indonesia|rupiah|1000|IDR|1.481
+Israel|new shekel|1|ILS|6.322
+Japan|yen|100|JPY|15.520
+Malaysia|ringgit|1|MYR|4.909
+Mexico|peso|1|MXN|1.383
+New Zealand|dollar|1|NZD|14.089
+Norway|krone|1|NOK|2.184
+Philippines|peso|100|PHP|41.579
+Poland|zloty|1|PLN|5.857
+Romania|leu|1|RON|5.060
+Singapore|dollar|1|SGD|17.275
+South Africa|rand|1|ZAR|1.236
+South Korea|won|100|KRW|1.737
+Sweden|krona|1|SEK|2.233
+Switzerland|franc|1|CHF|26.173
+Thailand|baht|100|THB|64.412
+Turkey|lira|100|TRY|71.676
+United Kingdom|pound|1|GBP|29.454
+USA|dollar|1|USD|23.093";
 
     public void Dispose()
     {

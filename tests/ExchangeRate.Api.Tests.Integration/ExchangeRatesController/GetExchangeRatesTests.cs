@@ -28,8 +28,8 @@ public class GetExchangeRatesTests : IClassFixture<ExchangeRateApiFactory>
 
         var builder = new UriBuilder { Path = ExchangeRateEndpoints.GetAll };
         var query = HttpUtility.ParseQueryString(builder.Query);
-        query["page"] = "1";
-        query["pageSize"] = "10";
+        // query["page"] = "1";
+        // query["pageSize"] = "10";
         builder.Query = query.ToString();
         string url = builder.ToString();
 
