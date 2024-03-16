@@ -34,7 +34,7 @@ public class ExchangeRateGetAllController : ControllerBase
         var options = request.MapToOptions();
 
         var res = await _cnbService.GetDailyExchangeRatesAsync(
-            new GetCnbDailyExchangeRatesOptions { Date = DateTime.Now },
+            new GetCnbDailyExchangeRatesOptions { Date = DateTime.UtcNow.Date },
             cancellationToken
         );
 

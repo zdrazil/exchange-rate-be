@@ -61,7 +61,7 @@ public class DbInitializer
 
         await connection.ExecuteAsync(
             @"
-                create index idx_exchange_rate_validFor ON exchange_rate(validFor);;
+            create index if not exists idx_exchange_rate_validFor ON exchange_rate(validFor);
             "
         );
     }

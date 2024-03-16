@@ -97,7 +97,7 @@ public class ExchangeRateRepository : IExchangeRateRepository
                     CurrencyCode = exchangeRate.Code,
                     CountryCode = exchangeRate.Country,
                     exchangeRate.Rate,
-                    ValidFor = validFor,
+                    ValidFor = validFor.ToString("yyyy-MM-dd"),
                     Amount = exchangeRate.Quantity
                 },
                 transaction: transaction,
@@ -120,32 +120,53 @@ public class ExchangeRateRepository : IExchangeRateRepository
     {
         using var connection = await _dbConnectionFactory.CreateConnectionAsync(cancellationToken);
 
+        var def = new CommandDefinition(
+            @"
+                    select
+                        exchange_rate.currencyCode,
+                        exchange_rate.countryCode,
+                        exchange_rate.rate,
+                        exchange_rate.validFor,
+                        exchange_rate.amount,
+                        currency.name as currencyName,
+                        country.name as countryName
+                    from exchange_rate
+                    join currency on exchange_rate.currencyCode = currency.currencyCode
+                    join country on exchange_rate.countryCode = country.countryCode
+                    ",
+            new { options.Date },
+            cancellationToken: cancellationToken
+        );
+
         var result = await connection.QueryAsync(
             new CommandDefinition(
                 @"
-                select
-                    currencyCode,
-                    countryCode,
-                    rate,
-                    validFor,
-                    amount
-                from exchange_rate
-                where
-                    currencyCode = @CurrencyCode
-                    and countryCode = @CountryCode
-                order by validFor desc
-                limit @Limit
-                offset @Offset
-                ",
-                new
-                {
-                    options.CurrencyCode,
-                    options.CountryCode,
-                    options.Limit,
-                    options.Offset
-                },
+                    select
+                        exchange_rate.currencyCode,
+                        exchange_rate.countryCode,
+                        exchange_rate.rate,
+                        exchange_rate.validFor,
+                        exchange_rate.amount,
+                        currency.name as currencyName,
+                        country.name as countryName
+                    from exchange_rate
+                    join currency on exchange_rate.currencyCode = currency.currencyCode
+                    join country on exchange_rate.countryCode = country.countryCode
+                    where
+                        validFor = @Date
+                    ",
+                new { options.Date },
                 cancellationToken: cancellationToken
             )
         );
+
+        return result.Select(r => new ExchangeRateDto
+        {
+            Code = r.currencyCode,
+            Country = r.countryName,
+            Currency = r.currencyName,
+            Rate = r.rate,
+            Quantity = r.amount
+        });
     }
 }

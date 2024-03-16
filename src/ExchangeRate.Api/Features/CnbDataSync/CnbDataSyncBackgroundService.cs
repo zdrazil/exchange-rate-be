@@ -2,7 +2,7 @@ namespace ExchangeRate.Api.Features.CnbDataSync;
 
 public class CnbDataSyncBackgroundService : BackgroundService
 {
-    private readonly PeriodicTimer _periodicTimer = new(TimeSpan.FromHours(1));
+    private readonly PeriodicTimer _periodicTimer = new(TimeSpan.FromSeconds(3));
     private readonly ICnbDataSyncService _cnbDataSyncService;
 
     public CnbDataSyncBackgroundService(ICnbDataSyncService cnbDataSyncService)

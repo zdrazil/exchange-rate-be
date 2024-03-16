@@ -24,10 +24,10 @@ public class ExchangeRateService : IExchangeRateService
         _exchangeRateRepository = exchangeRateRepository;
     }
 
-    public Task<bool> CreateAsync(ExchangeRateDto exchangeRate, CancellationToken token = default)
-    {
-        return _exchangeRateRepository.CreateAsync(exchangeRate, token);
-    }
+    public async Task<bool> CreateAsync(
+        ExchangeRateDto exchangeRate,
+        CancellationToken token = default
+    ) => await _exchangeRateRepository.CreateAsync(exchangeRate, token);
 
     public Task<int> GetCountAsync(CancellationToken cancellationToken = default) =>
         throw new NotImplementedException();
@@ -35,5 +35,8 @@ public class ExchangeRateService : IExchangeRateService
     public Task<IEnumerable<ExchangeRateDto>> GetExchangeRatesAsync(
         GetAllExchangeRatesOptions options,
         CancellationToken cancellationToken = default
-    ) => throw new NotImplementedException();
+    )
+    {
+        return _exchangeRateRepository.GetAllAsync(options, cancellationToken);
+    }
 }

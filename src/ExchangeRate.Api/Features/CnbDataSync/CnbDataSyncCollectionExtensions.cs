@@ -6,6 +6,7 @@ public static class CnbDataSyncCollectionExtensions
 {
     public static IServiceCollection AddCnbDataSync(this IServiceCollection services)
     {
+        services.AddSingleton<ICnbDataSyncService, CnbDataSyncService>();
         services.AddHostedService<CnbDataSyncBackgroundService>();
         return services;
     }

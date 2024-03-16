@@ -30,7 +30,6 @@ public class CnbApiServer : IDisposable
 
     private static string GenerateExchangeRatesBody() =>
         @"15.03.2024 #54
-15 Mar 2024 #54
 Country|Currency|Amount|Code|Rate
 Australia|dollar|1|AUD|15.175
 Brazil|real|1|BRL|4.624
