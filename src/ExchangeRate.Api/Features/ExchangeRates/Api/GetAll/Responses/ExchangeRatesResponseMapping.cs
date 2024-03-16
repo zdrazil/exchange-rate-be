@@ -10,8 +10,8 @@ public static class ExchangeRatesResponseMapping
         {
             Currency = exchangeRate.Currency,
             Country = exchangeRate.Country,
-            Quantity = exchangeRate.Quantity,
-            Code = exchangeRate.Code,
+            Amount = exchangeRate.Quantity,
+            CurrencyCode = exchangeRate.Code,
             Rate = exchangeRate.Rate,
         };
 

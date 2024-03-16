@@ -44,8 +44,8 @@ public class GetExchangeRatesTests : IClassFixture<ExchangeRateApiFactory>
         {
             Currency = "CZK",
             Country = "Czech Republic",
-            Quantity = 1,
-            Code = "CZK",
+            Amount = 1,
+            CurrencyCode = "CZK",
             Rate = 1,
         };
 
