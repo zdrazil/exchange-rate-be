@@ -1,7 +1,3 @@
-using ExchangeRate.Api.Features.CnbIntegration.Models;
-using ExchangeRate.Api.Features.CnbIntegration.Services;
-using ExchangeRate.Api.Features.ExchangeRateApplication.Service;
-
 namespace ExchangeRate.Api.Features.CnbDataSync;
 
 public class CnbDataSyncBackgroundService : BackgroundService
