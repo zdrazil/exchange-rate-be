@@ -1,7 +1,7 @@
 using ExchangeRate.Api.Features.CnbIntegration.Models;
 using ExchangeRate.Api.Features.CnbIntegration.Services;
-using ExchangeRate.Api.Features.ExchangeRateApi.Mapping;
 using ExchangeRate.Api.Features.ExchangeRateApplication.Service;
+using ExchangeRate.Api.Features.ExchangeRates.Api.ContractMapping;
 using ExchangeRate.Api.Features.ExchangeRates.Api.Contracts;
 using Microsoft.AspNetCore.Mvc;
 

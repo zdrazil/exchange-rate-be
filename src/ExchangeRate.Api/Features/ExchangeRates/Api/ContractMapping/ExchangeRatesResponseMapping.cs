@@ -1,9 +1,9 @@
 using ExchangeRate.Api.Features.ExchangeRateModels;
 using ExchangeRate.Api.Features.ExchangeRates.Api.Contracts;
 
-namespace ExchangeRate.Api.Features.ExchangeRateApi.Mapping;
+namespace ExchangeRate.Api.Features.ExchangeRates.Api.ContractMapping;
 
-public static class ExchangeRateContractMapping
+public static class ExchangeRatesResponseMapping
 {
     public static ExchangeRateResponse MapToResponse(this ExchangeRateDto exchangeRate) =>
         new()
@@ -28,8 +28,4 @@ public static class ExchangeRateContractMapping
             PageSize = pageSize,
             Total = totalCount,
         };
-
-    public static GetAllExchangeRatesOptions MapToOptions(
-        this GetAllExchangeRatesRequest request
-    ) => new() { };
 }
