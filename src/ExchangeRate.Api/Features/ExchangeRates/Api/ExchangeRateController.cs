@@ -11,9 +11,12 @@ namespace ExchangeRate.Api.Features.ExchangeRateApi;
 public class ExchangeRateController : ControllerBase
 {
     private readonly IExchangeRateService _exchangeRateService;
-    private readonly ICnbService _cnbService;
+    private readonly ICnbIntegrationService _cnbService;
 
-    public ExchangeRateController(IExchangeRateService exchangeRateService, ICnbService cnbService)
+    public ExchangeRateController(
+        IExchangeRateService exchangeRateService,
+        ICnbIntegrationService cnbService
+    )
     {
         _exchangeRateService = exchangeRateService;
         _cnbService = cnbService;

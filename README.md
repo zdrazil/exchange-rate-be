@@ -7,3 +7,8 @@ It is up to you to decide which technology (from .NET family) or package to use.
 Goal is to implement a fully functional provider based on real world public data source of the assigned bank.
 
 Please write the code like you would if you needed this to run on production environment and had to take care of it long-term.
+
+## Decisions
+
+- I'm using vertical slice architecture, grouping things by feature.
+- I don't follow one class, one file rule.

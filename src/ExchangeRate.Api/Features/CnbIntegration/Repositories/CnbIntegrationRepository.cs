@@ -1,8 +1,14 @@
-using System.Net.Http;
 using ExchangeRate.Api.Features.CnbIntegration.Models;
-using ExchangeRate.Api.Features.CnbIntegration.Repositories;
 
-namespace ExchangeRate.Api.Features.CnbIntegration.Services;
+namespace ExchangeRate.Api.Features.CnbIntegration.Repositories;
+
+public interface ICnbIntegrationRepository
+{
+    Task<IEnumerable<CnbExchangeRateDto>> GetDailyExchangeRatesAsync(
+        GetCnbDailyExchangeRatesOptions options,
+        CancellationToken cancellationToken = default
+    );
+}
 
 public class CnbIntegrationRepository : ICnbIntegrationRepository
 {

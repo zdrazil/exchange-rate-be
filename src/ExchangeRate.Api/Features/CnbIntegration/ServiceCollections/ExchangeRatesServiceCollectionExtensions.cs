@@ -7,7 +7,7 @@ public static class CnbIntegrationServiceCollectionExtensions
 {
     public static IServiceCollection AddCnbIntegration(this IServiceCollection services)
     {
-        services.AddSingleton<ICnbService, CnbService>();
+        services.AddSingleton<ICnbIntegrationService, CnbIntegrationService>();
         services.AddSingleton<ICnbIntegrationRepository, CnbIntegrationRepository>();
 
         services.AddHttpClient<ICnbIntegrationRepository, CnbIntegrationRepository>(client =>

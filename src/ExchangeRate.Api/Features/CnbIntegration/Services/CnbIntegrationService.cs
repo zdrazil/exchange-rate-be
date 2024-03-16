@@ -3,11 +3,19 @@ using ExchangeRate.Api.Features.CnbIntegration.Repositories;
 
 namespace ExchangeRate.Api.Features.CnbIntegration.Services;
 
-public class CnbService : ICnbService
+public interface ICnbIntegrationService
+{
+    Task<IEnumerable<CnbExchangeRateDto>> GetDailyExchangeRatesAsync(
+        GetCnbDailyExchangeRatesOptions options,
+        CancellationToken cancellationToken = default
+    );
+}
+
+public class CnbIntegrationService : ICnbIntegrationService
 {
     private readonly ICnbIntegrationRepository _cnbIntegrationRepository;
 
-    public CnbService(ICnbIntegrationRepository cnbIntegrationRepository)
+    public CnbIntegrationService(ICnbIntegrationRepository cnbIntegrationRepository)
     {
         _cnbIntegrationRepository = cnbIntegrationRepository;
     }
